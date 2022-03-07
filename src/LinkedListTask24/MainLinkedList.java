@@ -7,26 +7,29 @@ public class MainLinkedList {
         int[] arrays = new int[10];
         List<Integer> myList = new ArrayList<>(10);
         LinkedList<Integer> myLinkedList = new LinkedList<Integer>();
+        sortNumbers(arrays, myList, myLinkedList);
+
+    }
+    //hand method Overriding
+    private static void sortNumbers(int[] array, List<Integer> myList, LinkedList<Integer> myLinkedList) {
         Random randomObj = new Random();
         for (int i = 0; i < 10; i++) {
-            arrays[i] = randomObj.nextInt(2);
+            array[i] = randomObj.nextInt(2);
             myList.add(randomObj.nextInt(2));
             myLinkedList.add(randomObj.nextInt(2));
         }
-        System.out.println(Arrays.toString(arrays));
+        System.out.println(Arrays.toString(array));
         System.out.println(myList);
         System.out.println(myLinkedList);
         System.out.println("After sort");
-        Arrays.sort(arrays); //here just usin Integer default method
+        Arrays.sort(array);
         Collections.sort(myList);
-//        Collections.sort(myLinkedList);
-        Collections.sort(myLinkedList); //sorted by overLoad Comparator methods
-        System.out.println(Arrays.toString(arrays));
+        Collections.sort(myLinkedList);
+        System.out.println(Arrays.toString(array));
         System.out.println(myList);
         System.out.println(myLinkedList);
-
     }
-
+    //Comparator method Overriding
     public static Comparator<LinkedList> myComparator = new Comparator<LinkedList>() {
 
         @Override
@@ -40,7 +43,6 @@ public class MainLinkedList {
         public int compare(List o1, List o2) {
             return o1.size() - o2.size();
         }
-
     };
 
 }
